@@ -1,7 +1,7 @@
 /* General Styles */
 
 body {
-    background-color: yellow;
+    background-color: #F7D6A1;
 }
 
 * {
@@ -12,7 +12,7 @@ body {
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f7f9fc;
+    background-color: #FCEED9;
     color: #333;
     line-height: 1.6;
     padding: 0;
@@ -21,7 +21,7 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #1a73e8;
+    background-color: #89C8BF;
     color: white;
     padding: 15px 0;
     text-align: center;
@@ -50,7 +50,7 @@ nav a:hover {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
-    background-color: white;
+    background-color: #FCEED9;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.8s ease-in-out;
@@ -72,7 +72,7 @@ p {
 
 /* Reviews Section */
 .reviews {
-    background-color: #e3f2fd;
+    background-color: #DCFAED;
     padding: 20px;
     border-radius: 8px;
     margin-top: 40px;
@@ -86,7 +86,7 @@ p {
 }
 
 .review {
-    background-color: red;
+    background-color: #75F5F1;
     border-left: 4px solid #1a73e8;
     padding: 10px 15px;
     margin-bottom: 10px;
@@ -95,7 +95,7 @@ p {
 }
 
 .review strong {
-    color: #1a73e8;
+    color: #89C8BF;
 }
 
 /* Fine Print Section */
