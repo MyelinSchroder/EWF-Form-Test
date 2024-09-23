@@ -20,7 +20,7 @@ body {
 /* Header Styles */
 header {
     background-color: #89C8BF;
-    color: #F7F9FC;
+    color: #632C54;
     padding: 15px 0;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -58,7 +58,7 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 2.5rem;
-    color: #75F5F1;
+    color: #632C54;
 }
 
 h3 {
