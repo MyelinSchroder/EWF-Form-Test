@@ -74,7 +74,8 @@ p {
     font-size: 1.1rem;
     margin-bottom: 20px;
     line-height: 1.8;
-    color: #E6BADA;
+    background-color: #FBF1DA;
+    font-color: #E6BADA;
 }
 
 /* Reviews Section */
