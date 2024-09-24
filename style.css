@@ -111,6 +111,7 @@ p {
 .containers input[type="text"],
 .containers input[type="email"],
 .containers input[type="number"],
+.containers input[type="tel"],
 .containers input[type="password"],
 .containers textarea {
     width: 100%;
@@ -126,6 +127,7 @@ p {
 .containers input[type="text"]:focus,
 .containers input[type="email"]:focus,
 .containers input[type="number"]:focus,
+.containers input[type="tel"],
 .containers input[type="password"]:focus,
 .containers textarea:focus {
     border-color: #1a73e8;
