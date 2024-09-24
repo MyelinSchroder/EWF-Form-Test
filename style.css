@@ -67,7 +67,8 @@ h3 {
     font-size: 2.5rem;
     color: #632C54;
     background-color: #FCEED9;
-    border: 6px solid #4EA699;
+    border: 2px solid #4EA699;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     border-radius: 12px;
     padding-left: 30px;
     padding-right: 30px;
