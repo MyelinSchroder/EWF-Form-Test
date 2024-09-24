@@ -53,7 +53,10 @@
                   document.getElementById('loginResponse').innerText = data.message;
                   if (data.success) {
                       // Redirect to another page or display login success
+                      localStorage.setItem('loggedIn', true);
                       window.location.href = "dashboard.html"; // Example of redirect after login
+                  } else {
+                      localStorage.setItem('loggedIn', false);
                   }
               })
               .catch(error => console.error('Error:', error));
