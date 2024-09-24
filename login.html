@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Express Wash Fantasy</title>
+      <link rel="stylesheet" href="style.css">
+      
+  </head>
+  
+  <body>
+  
+      <header>
+          <h1>Express Wash Fantasy</h1>
+          <nav>
+              <a href="#">Home</a>
+              <a href="#">Users</a>
+              <a href="#">Settings</a>
+              <a href="about.html">About Us</a>
+              <a href="#">Contact</a>
+          </nav>
+      </header>
+  
+    <h2>Login to Express Wash Fantasy</h2>
+    
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+    
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+    
+        <button type="submit">Login</button>
+    </form>
+    
+    <div id="loginResponse"></div>
+    
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent traditional form submission
+    
+            const formData = new FormData(this);
+    
+            // Make an AJAX request to the Google Apps Script Web App
+            fetch('https://script.google.com/macros/s/AKfycbzA3oA84mjupEA9X2RLTURD5uaFCRgCLmpgISjDQ9aG4xVXdT5soRTCFs2tVb48VTk7_w/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('loginResponse').innerText = data.message;
+                if (data.success) {
+                    // Redirect to another page or display login success
+                    window.location.href = "dashboard.html"; // Example of redirect after login
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+  </body>
+</html>
