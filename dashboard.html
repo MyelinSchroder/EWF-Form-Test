@@ -30,12 +30,24 @@
 
     <!-- Dashboard Content -->
     <main class="dashboard-container">
+
+        <!-- Left and Right Image Boxes -->
+        <aside class="left-box">
+            <img src="placeholder.jpg" alt="Placeholder Left" class="side-image">
+        </aside>
+
+        <aside class="right-box">
+            <img src="placeholder.jpg" alt="Placeholder Right" class="side-image">
+        </aside>
+
         <section class="dashboard-header">
             <h2>Welcome to your Dashboard, [User]</h2>
             <p>Track your activity and manage your profile here.</p>
+            <!-- Add a button to access more data -->
+            <button class="btn">Access More Data</button>
         </section>
 
-        <!-- Interactive Panels  with Collapsible Feature -->
+        <!-- Interactive Panels with Collapsible Feature -->
         <section class="dashboard-panels">
             <div class="panel panel-activity">
                 <h3 onclick="toggleContent('activity')">Recent Activity <span class="toggle-indicator">▼</span></h3>
@@ -48,6 +60,7 @@
                 <h3 onclick="toggleContent('performance')">Performance Overview <span class="toggle-indicator">▼</span></h3>
                 <div id="performance" class="panel-content">
                     <canvas id="performanceChart"></canvas> <!-- Performance Chart -->
+                    <button class="btn">Download Report</button>
                 </div>
             </div>
             <div class="panel panel-settings">
@@ -57,6 +70,14 @@
                     <button class="btn btn-settings">Update Profile</button>
                 </div>
             </div>
+        </section>
+
+        <!-- Additional Interactive Button Section -->
+        <section class="additional-buttons">
+            <h3>Quick Actions</h3>
+            <button class="btn">Action 1</button>
+            <button class="btn">Action 2</button>
+            <button class="btn">Action 3</button>
         </section>
 
         <!-- Activity Feed Section -->
@@ -70,23 +91,6 @@
             </ul>
         </section>
 
-        <!-- Fun ASCII Art in the margins -->
-        <aside class="ascii-art-left">
-            <!-- Fun left margin ASCII art -->
-            <pre>
-              /\\_/\\  
-             ( o.o ) 
-              > ^ < 
-            </pre>
-        </aside>
-        <aside class="ascii-art-right">
-            <!-- Fun right margin ASCII art -->
-            <pre>
-             (\__/)   
-             (•ㅅ•)  
-            /    づ 
-            </pre>
-        </aside>
     </main>
 
     <!-- Footer -->
