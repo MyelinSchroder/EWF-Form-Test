@@ -279,6 +279,140 @@ p {
         width: 90%;
     }
 }
+
+
+
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #FCEED9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard Header */
+.dashboard-header h2 {
+    font-size: 2.2rem;
+    color: #632C54;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-header p {
+    font-size: 1.2rem;
+    color: #4EA699;
+    text-align: center;
+}
+
+/* Dashboard Cards Section */
+.dashboard-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: #FBF1DA;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: #632C54;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #4EA699;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Dashboard Charts Section */
+.dashboard-charts {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.chart {
+    background-color: #F7D6A1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 48%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chart h3 {
+    font-size: 1.5rem;
+    color: #632C54;
+    margin-bottom: 15px;
+}
+
+.chart p {
+    font-size: 1rem;
+    color: #4EA699;
+}
+
+/* Activity Feed Section */
+.dashboard-activity-feed {
+    background-color: #FBF1DA;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-activity-feed h3 {
+    font-size: 1.6rem;
+    color: #632C54;
+    margin-bottom: 15px;
+}
+
+.activity-feed {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.activity-feed li {
+    background-color: #FCEED9;
+    border-left: 6px solid #89C8BF;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    color: #4EA699;
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #89C8BF;
+    color: #F7F9FC;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
 /* Animations */
 @keyframes fadeIn {
     from {
