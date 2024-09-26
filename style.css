@@ -18,7 +18,7 @@ body {
 header {
     background-color: #89C8BF;
     color: #F7F9FC;
-    padding: 15px 0;
+    padding: 20px 0;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -34,9 +34,11 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 nav ul li {
+    display: inline;
     margin: 0 15px;
 }
 
@@ -47,34 +49,22 @@ nav a {
     transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: #F7D6A1;
-}
-
-nav a.active {
+nav a:hover, nav a.active {
     color: #F7D6A1;
 }
 
 /* Container for Page Content */
-.container {
+.container, .login-container, .registration-form, .dashboard-container {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
     background-color: #FBF1DA;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.8s ease-in-out;
 }
 
-h1, h3 {
-    text-align: center;
+h1, h2, h3 {
     color: #632C54;
-    background-color: #FCEED9;
-    border: 2px solid #4EA699;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    border-radius: 12px;
-    padding: 10px;
-    margin: 20px;
 }
 
 p {
@@ -83,32 +73,39 @@ p {
     color: #632C54;
 }
 
-/* Fireworks Button */
-.fireworks-btn {
-    display: block;
-    width: 200px;
-    margin: 20px auto;
-    padding: 10px;
-    background-color: #ff6347; /* Tomato red */
-    color: white;
-    text-align: center;
+/* Specific Page Elements */
+.dashboard-cards .card, .dashboard-charts .chart {
+    background-color: #FCEED9;
+    padding: 20px;
+    margin-bottom: 20px;
     border-radius: 8px;
-    cursor: pointer;
-    animation: pulse 2s infinite;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
+.dashboard-activity-feed, .reviews {
+    background-color: #FCEED9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Fireworks Button */
+.fireworks-btn {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    width: auto;
+    font-size: 1rem;
+    text-align: center;
 }
 
 /* Fireworks Animation */
-@keyframes fireworks {
-    from { transform: scale(0.5); opacity: 1; }
-    to { transform: scale(1.5); opacity: 0; }
-}
-
 .fireworks {
     position: fixed;
     top: 50%;
@@ -120,19 +117,7 @@ p {
     animation: fireworks 1s ease-out forwards;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin-bottom: 10px;
-    }
-
-    .container, .registration-form {
-        width: 90%;
-        padding: 15px;
-    }
+@keyframes fireworks {
+    from { transform: scale(0.5); opacity: 1; }
+    to { transform: scale(1.5); opacity: 0; }
 }
