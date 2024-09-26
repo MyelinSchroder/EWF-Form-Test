@@ -5,7 +5,7 @@ body {
     color: #333;
 }
 
-/* Brighten up Header */
+/* Header, Navigation, and Containers */
 header {
     background-color: #ff6f61;
     color: #ffffff;
@@ -18,92 +18,21 @@ header {
 h1 {
     font-size: 3rem;
     font-weight: bold;
-    color: #ffffff; /* White for header */
-    letter-spacing: 5px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 20px;
-}
-
-nav ul li a {
     color: #ffffff;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-nav ul li a:hover {
-    color: #ffeb3b; /* Bright yellow hover effect */
+    letter-spacing: 5px;
 }
 
 .dashboard-container {
     max-width: 1200px;
     margin: 30px auto;
     padding: 20px;
-    background-color: #fdf6e3; /* Light cream for contrast */
+    background-color: #fdf6e3;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     position: relative;
 }
 
-/* Left and Right Boxes for Images */
-.left-box, .right-box {
-    position: absolute;
-    top: 100px;
-    width: 200px;
-    height: 300px;
-    background-color: #eee;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.left-box {
-    left: -230px;
-}
-
-.right-box {
-    right: -230px;
-}
-
-.side-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Panels */
-.panel {
-    padding: 20px;
-    background-color: #ffe0b2; /* Light orange for panels */
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.panel h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    cursor: pointer;
-    color: #ff5722; /* Orange-red for headings */
-}
-
-.panel p {
-    font-size: 1.2rem;
-    color: #666;
-}
-
+/* Buttons */
 .btn {
     background-color: #ff5722;
     color: white;
@@ -115,7 +44,55 @@ nav ul li a:hover {
 }
 
 .btn:hover {
-    background-color: #ff8a65; /* Lighter hover effect */
+    background-color: #ff8a65;
+}
+
+/* Animation 1: Bounce for Action 1 */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.btn.action-1:hover {
+    animation: bounce 0.5s ease-in-out infinite;
+}
+
+/* Animation 2: Pulse for Action 2 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        background-color: #ff5722;
+    }
+    50% {
+        transform: scale(1.1);
+        background-color: #ff8a65;
+    }
+    100% {
+        transform: scale(1);
+        background-color: #ff5722;
+    }
+}
+
+.btn.action-2:hover {
+    animation: pulse 1s infinite;
+}
+
+/* Animation 3: Rotate for Action 3 */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn.action-3:hover {
+    animation: rotate 1s linear infinite;
 }
 
 /* Notification Bell */
@@ -125,7 +102,7 @@ nav ul li a:hover {
     right: 20px;
     font-size: 2rem;
     cursor: pointer;
-    color: #ffeb3b; /* Bright yellow */
+    color: #ffeb3b;
     animation: bellAnimation 1s infinite;
 }
 
@@ -146,11 +123,6 @@ nav ul li a:hover {
     50% { transform: rotate(-10deg); }
     75% { transform: rotate(10deg); }
     100% { transform: rotate(0deg); }
-}
-
-/* Collapsible Panels */
-.panel-content {
-    display: none; /* Initially hide content */
 }
 
 /* Footer Styles */
