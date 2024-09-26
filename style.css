@@ -224,59 +224,50 @@ p {
     width: 100%;
 }
 
-/* Containers Form Section */
-.containers {
-    max-width: 600px;
+/* Registration Form Container */
+.registration-form {
+    max-width: 500px;
     margin: 50px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    background-color: #FBF1DA;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid #e0e0e0;
 }
 
-.containers h2 {
+.registration-form h2 {
     text-align: center;
     font-size: 2rem;
-    color: #333;
+    color: #632C54;
     margin-bottom: 20px;
 }
 
-.containers label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #444;
+.registration-form .form-group {
+    margin-bottom: 20px;
 }
 
-.containers input[type="text"],
-.containers input[type="email"],
-.containers input[type="number"],
-.containers input[type="tel"],
-.containers input[type="password"],
-.containers textarea {
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="password"] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    margin-bottom: 20px;
-    font-size: 1rem;
     background-color: #f9f9f9;
-    transition: border 0.3s ease;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
 }
 
-.containers input[type="text"]:focus,
-.containers input[type="email"]:focus,
-.containers input[type="number"]:focus,
-.containers input[type="tel"],
-.containers input[type="password"]:focus,
-.containers textarea:focus {
+.registration-form input[type="text"]:focus,
+.registration-form input[type="email"]:focus,
+.registration-form input[type="password"]:focus {
     border-color: #1a73e8;
     outline: none;
     background-color: #fff;
 }
 
-.containers input[type="submit"] {
+.registration-form input[type="submit"] {
     width: 100%;
     padding: 12px;
     background-color: #1a73e8;
@@ -289,19 +280,19 @@ p {
     transition: background-color 0.3s ease;
 }
 
-.containers input[type="submit"]:hover {
+.registration-form input[type="submit"]:hover {
     background-color: #0c5fd8;
 }
 
-/* Style for Textarea */
-.containers textarea {
-    height: 100px;
-    resize: vertical;
-}
+/* Responsive Design for Registration Form */
+@media (max-width: 600px) {
+    .registration-form {
+        padding: 30px;
+    }
 
-/* Add some spacing between the form fields */
-.containers .form-group {
-    margin-bottom: 20px;
+    .registration-form h2 {
+        font-size: 1.8rem;
+    }
 }
 
 /* Reviews Section */
