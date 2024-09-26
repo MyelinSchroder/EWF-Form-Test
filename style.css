@@ -224,67 +224,86 @@ p {
     width: 100%;
 }
 
-/* Registration Form Container */
+/* Glassmorphism Registration Form Container */
 .registration-form {
     max-width: 500px;
     margin: 50px auto;
     padding: 40px;
-    background-color: #FBF1DA;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e0e0e0;
+    background: rgba(255, 255, 255, 0.2); /* Transparent background for glass effect */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff; /* White text to stand out on glass */
+    text-align: center;
 }
 
 .registration-form h2 {
-    text-align: center;
     font-size: 2rem;
-    color: #632C54;
+    color: #ffffff;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
+/* Input Fields */
 .registration-form .form-group {
-    margin-bottom: 20px;
+    position: relative;
+    margin-bottom: 30px;
 }
 
 .registration-form input[type="text"],
 .registration-form input[type="email"],
 .registration-form input[type="password"] {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1); /* Light transparency for inputs */
     font-size: 1rem;
-    color: #333;
-    transition: border-color 0.3s ease;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .registration-form input[type="text"]:focus,
 .registration-form input[type="email"]:focus,
 .registration-form input[type="password"]:focus {
     border-color: #1a73e8;
-    outline: none;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter background on focus */
 }
 
+/* Placeholder styling to integrate with the modern look */
+.registration-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.registration-form input:focus::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Submit Button */
 .registration-form input[type="submit"] {
     width: 100%;
-    padding: 12px;
-    background-color: #1a73e8;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #6C63FF, #4A47A3); /* Sleek gradient for submit button */
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
-    border: none;
-    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .registration-form input[type="submit"]:hover {
-    background-color: #0c5fd8;
+    background: linear-gradient(145deg, #5A56E0, #3834A0);
+    transform: translateY(-3px); /* Lift effect on hover */
 }
 
-/* Responsive Design for Registration Form */
+/* Responsive Design */
 @media (max-width: 600px) {
     .registration-form {
         padding: 30px;
