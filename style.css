@@ -7,105 +7,148 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F7D6A1;
-    color: #632C54;
+    background-color: #f4f4f9;
+    color: #333;
     line-height: 1.6;
-    padding: 0;
-    margin: 0;
 }
 
 /* Header Styles */
 header {
-    background-color: #89C8BF;
-    color: #F7F9FC;
-    padding: 20px 0;
+    background-color: #0056b3;
+    color: white;
+    padding: 15px 20px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 header h1 {
+    margin: 0;
     font-size: 2rem;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
+}
+
+nav {
+    margin-top: 10px;
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
-    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    padding: 0 15px;
 }
 
 nav a {
-    color: #F7F9FC;
+    color: white;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    transition: color 0.3s;
 }
 
 nav a:hover, nav a.active {
-    color: #F7D6A1;
+    color: #ffcc00;
 }
 
-/* Container for Page Content */
-.container, .login-container, .registration-form, .dashboard-container {
-    max-width: 900px;
-    margin: 40px auto;
+/* Section & Container Styling */
+.container, .registration-form, .login-container, .dashboard-container {
+    max-width: 960px;
+    margin: 20px auto;
     padding: 20px;
-    background-color: #FBF1DA;
+    background-color: white;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-h1, h2, h3 {
-    color: #632C54;
+h2, h3 {
+    color: #0056b3;
+    margin-bottom: 10px;
 }
 
-p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #632C54;
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-/* Specific Page Elements */
-.dashboard-cards .card, .dashboard-charts .chart {
-    background-color: #FCEED9;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.dashboard-activity-feed, .reviews {
-    background-color: #FCEED9;
-    padding: 20px;
+input[type="text"], input[type="email"], input[type="password"], input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #004494;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1, nav a {
+        font-size: 0.9rem;
+    }
+
+    .container, .registration-form, .login-container, .dashboard-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        padding: 5px;
+    }
+}
+
+/* Custom Styles for About Page */
+.reviews, .fine-print {
+    background-color: #f8f8f8;
+    padding: 15px;
     margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #ffcc00;
+    font-style: italic;
+}
+
+.reviews strong {
+    color: #0056b3;
 }
 
 /* Fireworks Button */
 .fireworks-btn {
-    background-color: #ff6347;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
     display: block;
-    width: auto;
-    font-size: 1rem;
-    text-align: center;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ff6347; /* Tomato red */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Fireworks Animation */
+.fireworks-btn:hover {
+    background-color: #cc5200; /* Darker red */
+}
+
+/* Fireworks Animation Styles */
 .fireworks {
     position: fixed;
     top: 50%;
