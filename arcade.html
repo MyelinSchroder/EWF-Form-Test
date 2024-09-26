@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade - Express Wash Fantasy</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Fun Script Title */
+        .arcade-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            color: #ff6f61;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* ASCII Art Carousel */
+        .carousel-container {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            margin: 30px auto;
+            width: 90%;
+        }
+
+        .carousel {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+            width: 100%;
+            overflow-x: scroll;
+            scrollbar-width: thin;
+        }
+
+        .carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel::-webkit-scrollbar-thumb {
+            background-color: #ff6f61;
+            border-radius: 20px;
+        }
+
+        .carousel-item {
+            width: 100px;
+            height: 100px;
+            background-color: #ffe0b2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: monospace;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ASCII Art Placeholder */
+        .ascii-art {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        /* Spacer */
+        .spacer {
+            margin: 40px 0;
+            height: 10px;
+            background-color: #ff8a65;
+            border-radius: 5px;
+        }
+
+        /* Unique Buttons */
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .arcade-btn {
+            padding: 12px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .arcade-btn:hover {
+            background-color: #ff8a65;
+        }
+
+        /* Button Animations */
+        .btn-action-1:hover {
+            animation: btn-grow 0.5s ease forwards;
+        }
+
+        @keyframes btn-grow {
+            to { transform: scale(1.2); }
+        }
+
+        .btn-action-2:hover {
+            animation: btn-rotate 0.5s ease forwards;
+        }
+
+        @keyframes btn-rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .btn-action-3:hover {
+            animation: btn-slide 0.5s ease forwards;
+        }
+
+        @keyframes btn-slide {
+            to { transform: translateX(20px); }
+        }
+
+        .btn-action-4:hover {
+            animation: btn-fade 0.5s ease forwards;
+        }
+
+        @keyframes btn-fade {
+            to { opacity: 0.5; }
+        }
+
+        .btn-action-5:hover {
+            animation: btn-wobble 0.5s ease forwards;
+        }
+
+        @keyframes btn-wobble {
+            25% { transform: rotate(5deg); }
+            50% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .btn-action-6:hover {
+            animation: btn-bounce 0.5s ease forwards;
+        }
+
+        @keyframes btn-bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Cool Spacer */
+        .cool-spacer {
+            margin: 60px 0;
+            height: 20px;
+            background: linear-gradient(to right, #ff6f61, #ffeb3b, #ff6f61);
+            border-radius: 10px;
+        }
+
+        /* Mission Statement */
+        .mission-container {
+            padding: 30px;
+            background-color: #ffe0b2;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin: 30px auto;
+            width: 80%;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            color: #ff6f61;
+        }
+
+        .mission-container h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #ff5722;
+        }
+
+        .mission-container p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h1>Express Wash Fantasy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="arcade.html" class="active">Arcade</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Title -->
+    <div class="arcade-title">
+        Welcome to the Arcade!
+    </div>
+
+    <!-- ASCII Art Carousel -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <!-- ASCII art placeholders as squares in the carousel -->
+            <div class="carousel-item ascii-art">[O]</div>
+            <div class="carousel-item ascii-art">(o)</div>
+            <div class="carousel-item ascii-art">(>_<)</div>
+            <div class="carousel-item ascii-art">(UwU)</div>
+            <div class="carousel-item ascii-art">(@_@)</div>
+            <div class="carousel-item ascii-art">(T_T)</div>
+            <div class="carousel-item ascii-art">(o_O)</div>
+            <div class="carousel-item ascii-art">(x_x)</div>
+            <div class="carousel-item ascii-art">(◕‿◕)</div>
+            <div class="carousel-item ascii-art">(ʘ‿ʘ)</div>
+        </div>
+    </div>
+
+    <!-- Spacer -->
+    <div class="spacer"></div>
+
+    <!-- Unique Buttons Section -->
+    <div class="button-container">
+        <button class="arcade-btn btn-action-1">Grow</button>
+        <button class="arcade-btn btn-action-2">Rotate</button>
+        <button class="arcade-btn btn-action-3">Slide</button>
+        <button class="arcade-btn btn-action-4">Fade</button>
+        <button class="arcade-btn btn-action-5">Wobble</button>
+        <button class="arcade-btn btn-action-6">Bounce</button>
+    </div>
+
+    <!-- Cool Spacer -->
+    <div class="cool-spacer"></div>
+
+    <!-- Mission Statement -->
+    <div class="mission-container">
+        <h2>Our Mission</h2>
+        <p>
+            At Express Wash Fantasy Arcade, we are driven by innovation, excitement, and a commitment to delivering the most fun-filled experiences. Join us on our quest to build a playground of creativity, powered by passion and cutting-edge technology.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Express Wash Fantasy. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
