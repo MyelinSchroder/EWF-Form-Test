@@ -24,13 +24,23 @@
     </header>
 
     <!-- Notification Bell -->
-    <div class="notification-bell">
+    <div class="notification-bell" onclick="toggleNotifications()">
         🔔<span class="bell-count">3</span> <!-- Notification with animation -->
+    </div>
+
+    <!-- Notification Popup -->
+    <div id="notificationPopup" class="notification-popup hidden">
+        <h3>Notifications</h3>
+        <ul>
+            <li>New user registration: John D.</li>
+            <li>Your challenge has been approved.</li>
+            <li>Update available for performance charts.</li>
+        </ul>
+        <button onclick="closeNotifications()">Close</button>
     </div>
 
     <!-- Dashboard Content -->
     <main class="dashboard-container">
-
         <!-- Left and Right Image Boxes -->
         <aside class="left-box">
             <img src="placeholder.jpg" alt="Placeholder Left" class="side-image">
@@ -73,18 +83,17 @@
         </section>
 
         <!-- Additional Interactive Button Section -->
-       <section class="additional-buttons">
-    <h3>Quick Actions</h3>
-    <!-- Action 1: Bounce Effect -->
-    <button class="btn action-1">Action 1</button>
+        <section class="additional-buttons">
+            <h3>Quick Actions</h3>
+            <!-- Action 1: Bounce Effect -->
+            <button class="btn action-1">Action 1</button>
 
-    <!-- Action 2: Pulse Effect -->
-    <button class="btn action-2">Action 2</button>
+            <!-- Action 2: Pulse Effect -->
+            <button class="btn action-2">Action 2</button>
 
-    <!-- Action 3: Rotate Effect -->
-    <button class="btn action-3">Action 3</button>
-</section>
-
+            <!-- Action 3: Rotate Effect -->
+            <button class="btn action-3">Action 3</button>
+        </section>
 
         <!-- Activity Feed Section -->
         <section class="dashboard-activity-feed">
@@ -96,7 +105,6 @@
                 <li>Submitted a form for the LEWFA event on 09/05/2024.</li>
             </ul>
         </section>
-
     </main>
 
     <!-- Footer -->
@@ -104,7 +112,7 @@
         <p>&copy; 2024 Express Wash Fantasy. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Chart and Interactions -->
+    <!-- JavaScript for Chart, Notifications, and Interactions -->
     <script>
         const ctx = document.getElementById('performanceChart').getContext('2d');
         const performanceChart = new Chart(ctx, {
@@ -147,6 +155,17 @@
 
         // Initialize collapsible panels hidden
         document.querySelectorAll('.panel-content').forEach(el => el.style.display = 'none');
+
+        // Toggle notifications
+        function toggleNotifications() {
+            const popup = document.getElementById('notificationPopup');
+            popup.classList.toggle('hidden');
+        }
+
+        function closeNotifications() {
+            const popup = document.getElementById('notificationPopup');
+            popup.classList.add('hidden');
+        }
     </script>
 </body>
 </html>
