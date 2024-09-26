@@ -135,3 +135,170 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+
+/* General Styles */
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Brighten up Header */
+header {
+    background-color: #ff6f61;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff; /* White for header */
+    letter-spacing: 5px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    color: #ffeb3b; /* Bright yellow hover effect */
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fdf6e3; /* Light cream for contrast */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Left and Right Boxes for Images */
+.left-box, .right-box {
+    position: absolute;
+    top: 100px;
+    width: 200px;
+    height: 300px;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.left-box {
+    left: -230px;
+}
+
+.right-box {
+    right: -230px;
+}
+
+.side-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Panels */
+.panel {
+    padding: 20px;
+    background-color: #ffe0b2; /* Light orange for panels */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.panel h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #ff5722; /* Orange-red for headings */
+}
+
+.panel p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff8a65; /* Lighter hover effect */
+}
+
+/* Notification Bell */
+.notification-bell {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ffeb3b; /* Bright yellow */
+    animation: bellAnimation 1s infinite;
+}
+
+.bell-count {
+    background-color: #ff6f61;
+    border-radius: 50%;
+    color: white;
+    padding: 5px 10px;
+    font-size: 1rem;
+    position: absolute;
+    top: -10px;
+    right: -15px;
+}
+
+@keyframes bellAnimation {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Collapsible Panels */
+.panel-content {
+    display: none; /* Initially hide content */
+}
+
+/* Footer Styles */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #ff6f61;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
