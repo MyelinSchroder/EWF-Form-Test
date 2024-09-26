@@ -23,6 +23,11 @@
         </nav>
     </header>
 
+    <!-- Notification Bell -->
+    <div class="notification-bell">
+        🔔<span class="bell-count">3</span> <!-- Notification with animation -->
+    </div>
+
     <!-- Dashboard Content -->
     <main class="dashboard-container">
         <section class="dashboard-header">
@@ -30,21 +35,27 @@
             <p>Track your activity and manage your profile here.</p>
         </section>
 
-        <!-- Interactive Panels -->
+        <!-- Interactive Panels with Collapsible Feature -->
         <section class="dashboard-panels">
             <div class="panel panel-activity">
-                <h3>Recent Activity</h3>
-                <p>Your latest updates and submissions.</p>
-                <button class="btn" onclick="showDetails()">Show More</button>
+                <h3 onclick="toggleContent('activity')">Recent Activity <span class="toggle-indicator">▼</span></h3>
+                <div id="activity" class="panel-content">
+                    <p>Your latest updates and submissions.</p>
+                    <button class="btn" onclick="showDetails()">Show More</button>
+                </div>
             </div>
             <div class="panel panel-performance">
-                <h3>Performance Overview</h3>
-                <canvas id="performanceChart"></canvas> <!-- Performance Chart -->
+                <h3 onclick="toggleContent('performance')">Performance Overview <span class="toggle-indicator">▼</span></h3>
+                <div id="performance" class="panel-content">
+                    <canvas id="performanceChart"></canvas> <!-- Performance Chart -->
+                </div>
             </div>
             <div class="panel panel-settings">
-                <h3>Profile Settings</h3>
-                <p>Update your account details.</p>
-                <button class="btn btn-settings">Update Profile</button>
+                <h3 onclick="toggleContent('settings')">Profile Settings <span class="toggle-indicator">▼</span></h3>
+                <div id="settings" class="panel-content">
+                    <p>Update your account details.</p>
+                    <button class="btn btn-settings">Update Profile</button>
+                </div>
             </div>
         </section>
 
@@ -58,6 +69,24 @@
                 <li>Submitted a form for the LEWFA event on 09/05/2024.</li>
             </ul>
         </section>
+
+        <!-- Fun ASCII Art in the margins -->
+        <aside class="ascii-art-left">
+            <!-- Placeholder for fun left margin ASCII art -->
+            <pre>
+              /\\_/\\  
+             ( o.o ) 
+              > ^ < 
+            </pre>
+        </aside>
+        <aside class="ascii-art-right">
+            <!-- Placeholder for fun right margin ASCII art -->
+            <pre>
+             (\__/)   
+             (•ㅅ•)  
+            /    づ 
+            </pre>
+        </aside>
     </main>
 
     <!-- Footer -->
@@ -65,7 +94,7 @@
         <p>&copy; 2024 Express Wash Fantasy. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Chart -->
+    <!-- JavaScript for Chart and Interactions -->
     <script>
         const ctx = document.getElementById('performanceChart').getContext('2d');
         const performanceChart = new Chart(ctx, {
@@ -93,6 +122,21 @@
         function showDetails() {
             alert('More details about recent activity.');
         }
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            const indicator = content.previousElementSibling.querySelector('.toggle-indicator');
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                indicator.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                indicator.textContent = '▲';
+            }
+        }
+
+        // Initialize collapsible panels hidden
+        document.querySelectorAll('.panel-content').forEach(el => el.style.display = 'none');
     </script>
 </body>
 </html>
