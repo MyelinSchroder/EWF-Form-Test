@@ -7,66 +7,64 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #FAF1E6; /* Warmer background tone */
-    color: #594F4F; /* Muted text color */
+    font-family: 'Playfair Display', serif; /* Vintage-inspired serif font */
+    background-color: #f3f4f6; /* Light textured background */
+    color: #333;
     line-height: 1.6;
 }
 
 /* Header Styles */
 header {
-    background: #FFAB91; /* Warm shade for the header */
-    color: white;
+    background-color: #252422; /* Dark charcoal */
+    color: #d9d9d9; /* Soft light grey for text */
     padding: 20px 10px;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 header h1 {
     font-size: 2.4rem;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: space-around; /* Better spacing between nav items */
+    justify-content: center;
     margin: 0 auto;
-    max-width: 800px; /* Limiting width to space out items */
 }
 
 nav ul li {
     margin: 0 15px;
-    padding: 10px 20px; /* Bigger buttons */
+    padding: 5px 10px;
 }
 
 nav a {
-    color: #FFF;
+    color: #fff;
     text-decoration: none;
-    font-size: 1.2rem; /* Larger font for readability */
-    background: rgba(255,255,255,0.3); /* Subtle background */
-    padding: 5px 15px;
-    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 nav a:hover, nav a.active {
-    background: rgba(255,255,255,0.5);
-    color: #333;
+    color: #fa8072; /* Salmon color for active/highlight */
 }
 
-/* Main Container Style */
+/* Container for Page Content */
 .container {
     max-width: 960px;
-    margin: 40px auto;
+    margin: 30px auto;
     padding: 20px;
-    background-color: #FFECB3; /* Warm container background */
-    border-radius: 12px;
+    background-color: #fff;
+    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 h2, h3 {
-    color: #FF6F61; /* Warm tone for titles */
+    font-family: 'Montserrat', sans-serif; /* Modern, clean sans-serif */
+    color: #252422; /* Dark charcoal */
     text-align: center;
 }
 
@@ -75,29 +73,26 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 50px; /* Lower the form on the page */
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="submit"] {
     width: 80%;
-    padding: 12px;
+    padding: 10px;
     margin: 10px 0;
-    border-radius: 20px;
-    border: 2px solid #FF6F61; /* Accent border color */
+    border-radius: 5px;
+    border: 2px solid #ccc;
     font-size: 1rem;
-    outline: none;
 }
 
 input[type="submit"] {
-    width: 50%; /* Less wide submit button */
-    background-color: #FF6F61; /* Consistent button color */
+    background-color: #252422;
     color: white;
     font-weight: bold;
     cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background-color: #D84315;
+    background-color: #444;
 }
 
 /* Responsive Design */
@@ -105,10 +100,6 @@ input[type="submit"]:hover {
     nav ul {
         flex-direction: column;
         align-items: center;
-    }
-
-    nav ul li {
-        padding: 5px;
     }
 
     .container, form {
@@ -123,21 +114,22 @@ input[type="submit"]:hover {
 
 /* Enhancements for About Page */
 .reviews, .fine-print {
-    background-color: #FFE0B2; /* Lighter for contrast */
+    font-family: 'Montserrat', sans-serif;
+    background-color: #eee; /* Light grey for subtle contrast */
     padding: 15px;
     margin: 20px 0;
     border-radius: 8px;
-    border-left: 5px solid #FF6F61;
-    font-style: italic;
+    font-size: 0.9rem;
 }
 
 .review {
     margin-bottom: 15px;
+    color: #252422;
 }
 
 /* Fireworks Button */
 .fireworks-btn {
-    background-color: #FF7043; /* Vibrant Orange */
+    background-color: #fa8072;
     color: white;
     border: none;
     border-radius: 20px;
@@ -147,7 +139,7 @@ input[type="submit"]:hover {
 }
 
 .fireworks-btn:hover {
-    background-color: #BF360C; /* Darker Orange */
+    background-color: #e9967a;
 }
 
 /* Animation Styles for Fireworks */
@@ -162,50 +154,4 @@ input[type="submit"]:hover {
 @keyframes fireworks {
     from { opacity: 1; }
     to { opacity: 0; transform: scale(3); }
-}
-
-/* Dashboard Styles */
-.dashboard-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.dashboard-section {
-    padding: 20px;
-    background: #FFD54F;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.dashboard-button {
-    background-color: #FFA726;
-    padding: 10px 15px;
-    border-radius: 8px;
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    margin: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.dashboard-button:hover {
-    background-color: #F57C00;
-}
-
-/* Shimmer Animation Across the Screen */
-@keyframes shimmer {
-    from { left: -100%; }
-    to { left: 100%; }
-}
-
-.shimmer {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #ffffff, transparent);
-    animation: shimmer 10s linear infinite;
 }
