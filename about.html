@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Express Wash Fantasy</title>
     <link rel="stylesheet" href="style.css">
@@ -23,47 +22,90 @@
     </header>
 
     <div class="container">
-        <h1>About Us</h1>
-        <p>
-            At Express Wash Fantasy (EWF), we believe that excellence isn't just a goal—it's a journey. Founded in the early days of modern innovation, our mission was simple: to revolutionize the way we think about performance, efficiency, and teamwork. With the support of the visionary League of Express Wash Fantasy Athletics (LEWFA), EWF has rapidly expanded from a small startup into a powerhouse recognized across industries.
-        </p>
-        <p>
-            Over the years, EWF has quietly redefined what it means to lead in a space that few fully understand. Our breakthrough approach has garnered attention not only for its cutting-edge techniques but for its unwavering commitment to sustainability, integrity, and community-driven impact. While the specifics of our process remain highly proprietary, one thing is clear: our work is already shaping the future of express services on a global scale.
-        </p>
-        <p>
-            Through the unyielding support of LEWFA, we've established a reputation for fostering an environment where dreams meet practicality. Whether you're a part of our expansive network or experiencing the results for the first time, you can be confident that EWF is committed to delivering the impossible, time and time again.
-        </p>
+        <section class="about-header">
+            <h1>About Us</h1>
+            <p>At Express Wash Fantasy (EWF), we believe that excellence isn't just a goal—it's a journey.</p>
+            <button class="btn action-1">Learn More</button>
+        </section>
 
+        <!-- Add pictures with descriptions -->
+        <section class="about-images">
+            <div class="image-container">
+                <img src="placeholder.jpg" alt="Placeholder Image 1" class="side-image">
+                <p>Revolutionizing performance and teamwork.</p>
+            </div>
+            <div class="image-container">
+                <img src="placeholder.jpg" alt="Placeholder Image 2" class="side-image">
+                <p>Driving innovation through integrity and impact.</p>
+            </div>
+        </section>
+
+        <section class="about-text">
+            <p>
+                Founded in the early days of modern innovation, our mission was simple: to revolutionize the way we think about performance, efficiency, and teamwork. With the support of the visionary League of Express Wash Fantasy Athletics (LEWFA), EWF has rapidly expanded from a small startup into a powerhouse recognized across industries.
+            </p>
+            <button class="btn action-2">Read Our Story</button>
+        </section>
+
+        <!-- Collapsible Panels for more information -->
+        <section class="collapsible-section">
+            <h3 onclick="toggleContent('mission')">Our Mission <span class="toggle-indicator">▼</span></h3>
+            <div id="mission" class="panel-content">
+                <p>Our mission is to lead in performance and innovation through teamwork, sustainability, and groundbreaking techniques.</p>
+                <button class="btn action-3">Get Involved</button>
+            </div>
+        </section>
+
+        <section class="collapsible-section">
+            <h3 onclick="toggleContent('vision')">Our Vision <span class="toggle-indicator">▼</span></h3>
+            <div id="vision" class="panel-content">
+                <p>We envision a world where efficiency and sustainability go hand in hand, paving the way for a cleaner, faster future.</p>
+            </div>
+        </section>
+
+        <!-- Reviews section with buttons and animations -->
         <div class="reviews">
             <h3>What People Are Saying</h3>
             <div class="review">
-                <strong><u>John D.</u></strong>: "EWF has truly transformed the way I think about express services. Their dedication to excellence is unparalleled!"
+                <strong><u>John D.</u></strong>: "EWF has truly transformed the way I think about express services."
+                <button class="btn action-1">More</button>
             </div>
             <div class="review">
-                <strong><u>Mary T.</u></strong>: "I didn't know what to expect at first, but the experience has been nothing short of revolutionary. EWF and LEWFA are taking things to a whole new level!"
+                <strong><u>Mary T.</u></strong>: "The experience has been nothing short of revolutionary."
+                <button class="btn action-2">More</button>
             </div>
             <div class="review">
-                <strong><u>Chris P.</u></strong>: "The team at EWF is doing something special. You can feel the passion and innovation in everything they touch."
+                <strong><u>Chris P.</u></strong>: "You can feel the passion and innovation in everything they touch."
+                <button class="btn action-3">More</button>
             </div>
         </div>
 
-        <div class="fine-print">
-            <p>
-                *Express Wash Fantasy (EWF) and the League of Express Wash Fantasy Athletics (LEWFA) are fictitious entities. Any resemblance to real organizations, active or dissolved, is purely coincidental. All reviews are fictional and for illustrative purposes only. EWF and LEWFA are not responsible for any misunderstandings, unanticipated outcomes, or misplaced expectations regarding the extraordinary promises made herein. Always use common sense when interpreting the vague yet sensational claims found on this website.
-            </p>
-        </div>
-
-        <!-- Fireworks Button -->
+        <!-- Add a Fireworks Button with animation -->
         <button class="fireworks-btn" onclick="createFireworks()">Celebrate with Fireworks!</button>
     </div>
 
+    <!-- Fireworks Animation -->
     <script>
         function createFireworks() {
             var fw = document.createElement('div');
             fw.className = 'fireworks';
             document.body.appendChild(fw);
-            setTimeout(function() { fw.remove(); }, 1000); // Animation runs for 1 second
+            setTimeout(function() { fw.remove(); }, 1000);
         }
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            const indicator = content.previousElementSibling.querySelector('.toggle-indicator');
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                indicator.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                indicator.textContent = '▲';
+            }
+        }
+
+        document.querySelectorAll('.panel-content').forEach(el => el.style.display = 'none');
     </script>
 
 </body>
