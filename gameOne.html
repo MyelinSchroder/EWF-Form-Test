@@ -100,6 +100,13 @@
             display: block;
             margin: 20px auto;
         }
+
+        /* Platformer Game */
+        #platformerCanvas {
+            background-color: #87CEEB;
+            display: block;
+            margin: 20px auto;
+        }
     </style>
 </head>
 <body>
@@ -111,6 +118,7 @@
     <nav>
         <a href="#" onclick="showGame('tic-tac-toe')">Tic-Tac-Toe</a>
         <a href="#" onclick="showGame('snake-game')">Snake Game</a>
+        <a href="#" onclick="showGame('platformer-game')">Platformer Game</a>
     </nav>
 
     <!-- Notification Bell -->
@@ -143,6 +151,12 @@
     <div id="snake-game" class="game-container">
         <h2>Snake Game</h2>
         <canvas id="gameCanvas" width="400" height="400"></canvas>
+    </div>
+
+    <!-- Platformer Game -->
+    <div id="platformer-game" class="game-container">
+        <h2>Side Scrolling Platformer</h2>
+        <canvas id="platformerCanvas" width="800" height="400"></canvas>
     </div>
 
     <script>
@@ -231,6 +245,68 @@
         });
 
         setInterval(updateGame, 100);
+
+        // Platformer Game Logic
+        const platformerCanvas = document.getElementById('platformerCanvas');
+        const platformerCtx = platformerCanvas.getContext('2d');
+
+        let player = {x: 50, y: 350, width: 50, height: 50, speed: 5, velocityY: 0, isJumping: false};
+        let gravity = 0.5;
+        let groundHeight = platformerCanvas.height - 50;
+        let obstacles = [{x: 300, y: groundHeight, width: 50, height: 50}, {x: 600, y: groundHeight, width: 50, height: 50}];
+        let scrollOffset = 0;
+
+        function updatePlatformerGame() {
+            // Apply gravity
+            player.velocityY += gravity;
+            player.y += player.velocityY;
+
+            // Prevent player from falling below the ground
+            if (player.y + player.height > groundHeight) {
+                player.y = groundHeight - player.height;
+                player.velocityY = 0;
+                player.isJumping = false;
+            }
+
+            // Move the player left or right
+            if (scrollOffset < 1000) {
+                scrollOffset += player.speed;
+            }
+
+            drawPlatformerGame();
+        }
+
+        function drawPlatformerGame() {
+            platformerCtx.clearRect(0, 0, platformerCanvas.width, platformerCanvas.height);
+
+            // Draw ground
+            platformerCtx.fillStyle = 'green';
+            platformerCtx.fillRect(0, groundHeight, platformerCanvas.width, 50);
+
+            // Draw player
+            platformerCtx.fillStyle = 'blue';
+            platformerCtx.fillRect(player.x, player.y, player.width, player.height);
+
+            // Draw obstacles
+            platformerCtx.fillStyle = 'red';
+            obstacles.forEach(obstacle => {
+                platformerCtx.fillRect(obstacle.x - scrollOffset, obstacle.y, obstacle.width, obstacle.height);
+            });
+        }
+
+        // Handle player movement and jumping
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                player.x += player.speed;
+            } else if (event.key === 'ArrowLeft') {
+                player.x -= player.speed;
+            } else if (event.key === 'ArrowUp' && !player.isJumping) {
+                player.isJumping = true;
+                player.velocityY = -10;
+            }
+        });
+
+        setInterval(updatePlatformerGame, 20);
     </script>
 </body>
 </html>
