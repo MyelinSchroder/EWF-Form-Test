@@ -112,31 +112,83 @@
             color: 'blue',  // Color for the player square
         };
 
-        // Platforms and Enemies for Two Levels
+        // Expanded Platforms and Enemies for Five Levels
         const levels = {
             1: {
                 platforms: [
-                    { x: 0, y: 360, width: 1000, height: 40 },
+                    { x: 0, y: 360, width: 1600, height: 40 },  // Much larger width
                     { x: 300, y: 300, width: 200, height: 20 },
                     { x: 700, y: 250, width: 150, height: 20 },
+                    { x: 1000, y: 200, width: 150, height: 20 },
+                    { x: 1300, y: 150, width: 100, height: 20 },
                 ],
                 enemies: [
                     { x: 500, y: 360, width: 30, height: 30, speed: 2, direction: 1 },
                 ],
-                exit: { x: 950, y: 320, width: 50, height: 40 }, // Exit point to next level
+                exit: { x: 1500, y: 320, width: 50, height: 40 }, // Exit point to next level
             },
             2: {
                 platforms: [
-                    { x: 0, y: 360, width: 1000, height: 40 },
-                    { x: 150, y: 250, width: 150, height: 20 },
-                    { x: 400, y: 180, width: 100, height: 20 },
-                    { x: 600, y: 300, width: 150, height: 20 },
+                    { x: 0, y: 360, width: 1600, height: 40 },
+                    { x: 200, y: 300, width: 150, height: 20 },
+                    { x: 600, y: 250, width: 200, height: 20 },
+                    { x: 1000, y: 200, width: 150, height: 20 },
+                    { x: 1300, y: 150, width: 150, height: 20 },
+                    { x: 1600, y: 100, width: 200, height: 20 },
                 ],
                 enemies: [
                     { x: 300, y: 360, width: 30, height: 30, speed: 3, direction: 1 },
-                    { x: 650, y: 360, width: 30, height: 30, speed: 2, direction: -1 },
+                    { x: 800, y: 360, width: 30, height: 30, speed: 2, direction: -1 },
                 ],
-                exit: { x: 950, y: 320, width: 50, height: 40 }, // Exit point for level completion
+                exit: { x: 1500, y: 320, width: 50, height: 40 }, // Exit point to next level
+            },
+            3: {
+                platforms: [
+                    { x: 0, y: 360, width: 1800, height: 40 },
+                    { x: 250, y: 300, width: 150, height: 20 },
+                    { x: 600, y: 250, width: 100, height: 20 },
+                    { x: 850, y: 200, width: 150, height: 20 },
+                    { x: 1200, y: 100, width: 200, height: 20 },
+                    { x: 1500, y: 300, width: 150, height: 20 },
+                    { x: 1800, y: 150, width: 100, height: 20 },
+                ],
+                enemies: [
+                    { x: 450, y: 360, width: 30, height: 30, speed: 2, direction: -1 },
+                    { x: 1000, y: 360, width: 30, height: 30, speed: 3, direction: 1 },
+                ],
+                exit: { x: 1700, y: 320, width: 50, height: 40 }, // Exit point to next level
+            },
+            4: {
+                platforms: [
+                    { x: 0, y: 360, width: 2000, height: 40 },
+                    { x: 200, y: 300, width: 100, height: 20 },
+                    { x: 500, y: 250, width: 200, height: 20 },
+                    { x: 900, y: 100, width: 150, height: 20 },
+                    { x: 1300, y: 50, width: 100, height: 20 },
+                    { x: 1700, y: 200, width: 200, height: 20 },
+                ],
+                enemies: [
+                    { x: 600, y: 360, width: 30, height: 30, speed: 4, direction: -1 },
+                    { x: 1100, y: 360, width: 30, height: 30, speed: 2, direction: 1 },
+                    { x: 1500, y: 360, width: 30, height: 30, speed: 3, direction: 1 },
+                ],
+                exit: { x: 1900, y: 320, width: 50, height: 40 }, // Exit point to next level
+            },
+            5: {
+                platforms: [
+                    { x: 0, y: 360, width: 2400, height: 40 },
+                    { x: 200, y: 300, width: 150, height: 20 },
+                    { x: 800, y: 200, width: 100, height: 20 },
+                    { x: 1200, y: 150, width: 200, height: 20 },
+                    { x: 1600, y: 250, width: 200, height: 20 },
+                    { x: 2000, y: 100, width: 200, height: 20 },
+                ],
+                enemies: [
+                    { x: 600, y: 360, width: 30, height: 30, speed: 3, direction: -1 },
+                    { x: 1300, y: 360, width: 30, height: 30, speed: 4, direction: 1 },
+                    { x: 1800, y: 360, width: 30, height: 30, speed: 2, direction: -1 },
+                ],
+                exit: { x: 2300, y: 320, width: 50, height: 40 }, // Exit point for level completion
             }
         };
 
