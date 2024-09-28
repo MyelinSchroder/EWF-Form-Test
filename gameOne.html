@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Platformer Game</title>
+    <title>Expanded Platformer Game</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,72 +12,93 @@
             background-color: #f0f0f0;
         }
 
-        /* Header */
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            font-size: 1.5rem;
-        }
-
-        /* Game Canvas */
-        #platformerCanvas {
-            background-color: #87CEEB;
+        /* General Styles */
+        canvas {
             display: block;
             margin: 20px auto;
+            background-color: #87CEEB;
             border: 2px solid #333;
         }
 
-        /* Notification Bell */
-        .notification-bell {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #ffeb3b;
-            animation: bellAnimation 1s infinite;
-        }
-
-        .bell-count {
-            background-color: #ff6f61;
-            border-radius: 50%;
+        header {
+            background-color: #333;
             color: white;
-            padding: 5px 10px;
-            font-size: 1rem;
-            position: absolute;
-            top: -10px;
-            right: -15px;
+            text-align: center;
+            padding: 20px;
         }
 
-        @keyframes bellAnimation {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(10deg); }
-            50% { transform: rotate(-10deg); }
-            75% { transform: rotate(10deg); }
-            100% { transform: rotate(0deg); }
+        .menu {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .menu button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .lore {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .lore h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .lore p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 20px auto;
         }
     </style>
 </head>
 <body>
 
-    <header>Enhanced Platformer Game</header>
+    <header id="gameHeader">Expanded Platformer Game</header>
 
-    <!-- Notification Bell -->
-    <div class="notification-bell">
-        🔔<span class="bell-count">3</span>
+    <!-- Start Menu -->
+    <div id="startMenu" class="menu">
+        <h1>Welcome to the Epic Journey</h1>
+        <button onclick="startGame()">Start Game</button>
+        <button onclick="showLore()">Lore</button>
+        <button onclick="quitGame()">Quit</button>
     </div>
 
-    <!-- Platformer Game -->
-    <canvas id="platformerCanvas" width="800" height="400"></canvas>
+    <!-- Lore Section -->
+    <div id="loreSection" class="lore" style="display:none;">
+        <h1>The Legend of the Square Hero</h1>
+        <p>
+            Long ago, in the land of Geometrica, a lone square hero embarked on a perilous journey to
+            defeat the evil forces of Chaos that threatened the balance of all shapes. Armed with nothing
+            but courage, our hero must travel through various realms, defeat enemies, and gather the
+            ancient artifacts needed to restore order to the universe.
+        </p>
+        <p>
+            Will you be able to guide the Square Hero through the dangers that await? Can you help uncover
+            the mysteries of the fractured world and restore peace to Geometrica?
+        </p>
+        <button onclick="returnToMenu()">Back to Menu</button>
+    </div>
+
+    <!-- Platformer Game Canvas -->
+    <canvas id="platformerCanvas" width="800" height="400" style="display:none;"></canvas>
 
     <script>
         const canvas = document.getElementById('platformerCanvas');
         const ctx = canvas.getContext('2d');
+        let currentLevel = 1;
 
+        // Game Variables
         const gravity = 0.8;
         const friction = 0.9;
+        let scrollOffset = 0;
+        let gameActive = false;
+
         const player = {
             x: 100,
             y: 300,
@@ -90,18 +111,58 @@
             isGrounded: false,
             color: 'blue',  // Color for the player square
         };
-        const platforms = [
-            { x: 0, y: 360, width: 1000, height: 40 }, // Ground platform
-            { x: 200, y: 250, width: 150, height: 20 },
-            { x: 400, y: 200, width: 100, height: 20 },
-            { x: 600, y: 300, width: 120, height: 20 },
-        ];
 
-        const enemies = [
-            { x: 500, y: 360, width: 30, height: 30, speed: 2, direction: 1 },
-        ];
+        // Platforms and Enemies for Two Levels
+        const levels = {
+            1: {
+                platforms: [
+                    { x: 0, y: 360, width: 1000, height: 40 },
+                    { x: 300, y: 300, width: 200, height: 20 },
+                    { x: 700, y: 250, width: 150, height: 20 },
+                ],
+                enemies: [
+                    { x: 500, y: 360, width: 30, height: 30, speed: 2, direction: 1 },
+                ],
+                exit: { x: 950, y: 320, width: 50, height: 40 }, // Exit point to next level
+            },
+            2: {
+                platforms: [
+                    { x: 0, y: 360, width: 1000, height: 40 },
+                    { x: 150, y: 250, width: 150, height: 20 },
+                    { x: 400, y: 180, width: 100, height: 20 },
+                    { x: 600, y: 300, width: 150, height: 20 },
+                ],
+                enemies: [
+                    { x: 300, y: 360, width: 30, height: 30, speed: 3, direction: 1 },
+                    { x: 650, y: 360, width: 30, height: 30, speed: 2, direction: -1 },
+                ],
+                exit: { x: 950, y: 320, width: 50, height: 40 }, // Exit point for level completion
+            }
+        };
 
-        let scrollOffset = 0;
+        function startGame() {
+            document.getElementById('startMenu').style.display = 'none';
+            document.getElementById('platformerCanvas').style.display = 'block';
+            gameActive = true;
+            currentLevel = 1;
+            resetGame();
+            updateGame();
+        }
+
+        function showLore() {
+            document.getElementById('startMenu').style.display = 'none';
+            document.getElementById('loreSection').style.display = 'block';
+        }
+
+        function returnToMenu() {
+            document.getElementById('loreSection').style.display = 'none';
+            document.getElementById('startMenu').style.display = 'block';
+        }
+
+        function quitGame() {
+            alert("Thanks for playing!");
+            window.close();
+        }
 
         function drawPlayer() {
             // Draw square player
@@ -110,17 +171,25 @@
         }
 
         function drawPlatforms() {
+            const currentPlatforms = levels[currentLevel].platforms;
             ctx.fillStyle = 'green';
-            platforms.forEach(platform => {
+            currentPlatforms.forEach(platform => {
                 ctx.fillRect(platform.x - scrollOffset, platform.y, platform.width, platform.height);
             });
         }
 
         function drawEnemies() {
+            const currentEnemies = levels[currentLevel].enemies;
             ctx.fillStyle = 'red';
-            enemies.forEach(enemy => {
+            currentEnemies.forEach(enemy => {
                 ctx.fillRect(enemy.x - scrollOffset, enemy.y - enemy.height, enemy.width, enemy.height);
             });
+        }
+
+        function drawExit() {
+            const exit = levels[currentLevel].exit;
+            ctx.fillStyle = 'gold';
+            ctx.fillRect(exit.x - scrollOffset, exit.y, exit.width, exit.height);
         }
 
         function updatePlayer() {
@@ -130,6 +199,7 @@
             player.x += player.velocityX;
             player.y += player.velocityY;
 
+            const currentPlatforms = levels[currentLevel].platforms;
             // Ground collision
             if (player.y + player.height > canvas.height - 40) { // Adjusted for ground platform height
                 player.y = canvas.height - 40 - player.height; // Set player on top of the ground
@@ -139,7 +209,7 @@
             }
 
             // Platform collision detection
-            platforms.forEach(platform => {
+            currentPlatforms.forEach(platform => {
                 if (player.y + player.height <= platform.y &&
                     player.y + player.height + player.velocityY >= platform.y &&
                     player.x + player.width >= platform.x &&
@@ -152,7 +222,8 @@
             });
 
             // Enemy collision detection
-            enemies.forEach(enemy => {
+            const currentEnemies = levels[currentLevel].enemies;
+            currentEnemies.forEach(enemy => {
                 if (player.x + player.width >= enemy.x &&
                     player.x <= enemy.x + enemy.width &&
                     player.y + player.height >= enemy.y &&
@@ -162,6 +233,22 @@
                 }
             });
 
+            // Exit collision detection
+            const exit = levels[currentLevel].exit;
+            if (player.x + player.width >= exit.x &&
+                player.x <= exit.x + exit.width &&
+                player.y + player.height >= exit.y &&
+                player.y <= exit.y + exit.height) {
+                if (currentLevel < Object.keys(levels).length) {
+                    alert('Level Complete! Moving to next level...');
+                    currentLevel++;
+                    resetGame();
+                } else {
+                    alert('You have completed all levels!');
+                    returnToMenu();
+                }
+            }
+
             // Horizontal camera scroll
             if (player.x > canvas.width / 2) {
                 scrollOffset += player.speed;
@@ -169,7 +256,8 @@
         }
 
         function updateEnemies() {
-            enemies.forEach(enemy => {
+            const currentEnemies = levels[currentLevel].enemies;
+            currentEnemies.forEach(enemy => {
                 enemy.x += enemy.speed * enemy.direction;
                 if (enemy.x > 550 || enemy.x < 450) {
                     enemy.direction *= -1;  // Reverse direction when hitting boundaries
@@ -186,6 +274,7 @@
         }
 
         function updateGame() {
+            if (!gameActive) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             updatePlayer();
@@ -194,6 +283,9 @@
             drawPlayer();
             drawPlatforms();
             drawEnemies();
+            drawExit();
+
+            requestAnimationFrame(updateGame);
         }
 
         // Handle player movement and jumping
@@ -214,8 +306,6 @@
                 player.velocityX = 0;
             }
         });
-
-        setInterval(updateGame, 20);
     </script>
 </body>
 </html>
