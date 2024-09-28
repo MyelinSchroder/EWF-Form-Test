@@ -81,14 +81,14 @@
         const player = {
             x: 100,
             y: 300,
-            width: 30,
-            height: 60,
+            width: 50,
+            height: 50,  // Square player
             speed: 5,
             velocityX: 0,
             velocityY: 0,
             isJumping: false,
             isGrounded: false,
-            color: 'black',
+            color: 'blue',  // Color for the player square
         };
         const platforms = [
             { x: 0, y: 360, width: 1000, height: 40 },
@@ -103,25 +103,10 @@
 
         let scrollOffset = 0;
 
-        // Draw the player (stick figure)
         function drawPlayer() {
-            ctx.beginPath();
-            // Draw head
-            ctx.arc(player.x - scrollOffset + player.width / 2, player.y + player.height / 4, player.width / 4, 0, Math.PI * 2);
-            // Draw body
-            ctx.moveTo(player.x - scrollOffset + player.width / 2, player.y + player.height / 4);
-            ctx.lineTo(player.x - scrollOffset + player.width / 2, player.y + player.height);
-            // Draw arms
-            ctx.moveTo(player.x - scrollOffset + player.width / 2, player.y + player.height / 2);
-            ctx.lineTo(player.x - scrollOffset + player.width / 4, player.y + player.height / 1.5);
-            ctx.moveTo(player.x - scrollOffset + player.width / 2, player.y + player.height / 2);
-            ctx.lineTo(player.x - scrollOffset + player.width * 0.75, player.y + player.height / 1.5);
-            // Draw legs
-            ctx.moveTo(player.x - scrollOffset + player.width / 2, player.y + player.height);
-            ctx.lineTo(player.x - scrollOffset + player.width / 4, player.y + player.height + 20);
-            ctx.moveTo(player.x - scrollOffset + player.width / 2, player.y + player.height);
-            ctx.lineTo(player.x - scrollOffset + player.width * 0.75, player.y + player.height + 20);
-            ctx.stroke();
+            // Draw square player
+            ctx.fillStyle = player.color;
+            ctx.fillRect(player.x - scrollOffset, player.y, player.width, player.height);
         }
 
         function drawPlatforms() {
@@ -141,7 +126,7 @@
         function updatePlayer() {
             // Apply gravity
             player.velocityY += gravity;
-            player.velocityY *= friction; // Smooth vertical motion
+            player.velocityY *= friction;  // Smooth vertical motion
             player.x += player.velocityX;
             player.y += player.velocityY;
 
@@ -187,7 +172,7 @@
             enemies.forEach(enemy => {
                 enemy.x += enemy.speed * enemy.direction;
                 if (enemy.x > 550 || enemy.x < 450) {
-                    enemy.direction *= -1; // Reverse direction when hitting boundaries
+                    enemy.direction *= -1;  // Reverse direction when hitting boundaries
                 }
             });
         }
@@ -219,7 +204,7 @@
                 player.velocityX = -player.speed;
             } else if (event.key === 'ArrowUp' && !player.isJumping) {
                 player.isJumping = true;
-                player.velocityY = -15; // Jump higher
+                player.velocityY = -15;  // Jump higher
                 player.isGrounded = false;
             }
         });
