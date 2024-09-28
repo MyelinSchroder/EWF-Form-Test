@@ -91,7 +91,7 @@
             color: 'blue',  // Color for the player square
         };
         const platforms = [
-            { x: 0, y: 360, width: 1000, height: 40 },
+            { x: 0, y: 360, width: 1000, height: 40 }, // Ground platform
             { x: 200, y: 250, width: 150, height: 20 },
             { x: 400, y: 200, width: 100, height: 20 },
             { x: 600, y: 300, width: 120, height: 20 },
@@ -131,8 +131,8 @@
             player.y += player.velocityY;
 
             // Ground collision
-            if (player.y + player.height > canvas.height) {
-                player.y = canvas.height - player.height;
+            if (player.y + player.height > canvas.height - 40) { // Adjusted for ground platform height
+                player.y = canvas.height - 40 - player.height; // Set player on top of the ground
                 player.velocityY = 0;
                 player.isJumping = false;
                 player.isGrounded = true;
@@ -147,7 +147,7 @@
                     player.velocityY = 0;
                     player.isJumping = false;
                     player.isGrounded = true;
-                    player.y = platform.y - player.height;
+                    player.y = platform.y - player.height; // Adjust to sit on top of the platform
                 }
             });
 
