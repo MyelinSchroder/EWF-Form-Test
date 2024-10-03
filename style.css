@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: 'Playfair Display', serif;
-    background-color: #ffffff;
+    background-color: #f5f5f5;
     color: #333;
 }
 
@@ -46,65 +46,20 @@ nav ul li a:hover {
     color: #ffeb3b;
 }
 
-.container {
+/* Dashboard Panels */
+.dashboard-container {
     max-width: 1200px;
     margin: 30px auto;
     padding: 20px;
-    background-color: #fdf6e3;
+    background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
-/* Images Section */
-.about-images {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
-}
-
-.image-container {
-    width: 45%;
-    text-align: center;
-}
-
-.side-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.image-container p {
-    margin-top: 10px;
-    font-size: 1rem;
-}
-
-/* Collapsible Panels */
-.collapsible-section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    cursor: pointer;
-    color: #ff5722;
-}
-
-.panel-content {
-    display: none;
-    padding: 10px;
-    background-color: #ffe0b2;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.panel-content p {
-    font-size: 1.2rem;
-}
-
-/* Panels */
+/* Panels and Interactive Elements */
 .panel {
     padding: 20px;
-    background-color: #ffe0b2;
+    background-color: #fdf6e3;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
@@ -126,17 +81,27 @@ nav ul li a:hover {
 /* Buttons */
 .btn {
     background-color: #ff5722;
-    color: white;
+    color:    white;
     border: none;
     padding: 10px 20px;
     border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     margin: 10px 0;
 }
 
 .btn:hover {
     background-color: #ff8a65;
+    transform: scale(1.05); /* Add scaling effect on hover */
+}
+
+.btn-modern {
+    background-color: #00bcd4; /* Light blue */
+    color: white;
+}
+
+.btn-modern:hover {
+    background-color: #4dd0e1; /* Slightly darker on hover */
 }
 
 /* Button Animations */
@@ -182,45 +147,6 @@ nav ul li a:hover {
     animation: rotate 1s linear infinite;
 }
 
-/* Reviews */
-.reviews {
-    margin-top: 30px;
-}
-
-.review {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-}
-
-/* Fireworks Button */
-.fireworks-btn {
-    background-color: #ff5722;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.fireworks-btn:hover {
-    background-color: #ff8a65;
-}
-
-/* Fireworks Animation */
-.fireworks {
-    position: fixed;
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(255,255,255,1) 100%);
-    animation: fireworks 1s ease-out forwards;
-}
-
-@keyframes fireworks {
-    from { opacity: 1; }
-    to { opacity: 0; transform: scale(3); }
-}
-
 /* Notification Bell */
 .notification-bell {
     position: absolute;
@@ -251,14 +177,14 @@ nav ul li a:hover {
     100% { transform: rotate(0deg); }
 }
 
-/* Notification Popup with Steampunk Aesthetic */
+/* Notification Popup with Modern Aesthetic */
 .notification-popup {
     position: absolute;
     top: 60px;
     right: 20px;
     width: 350px;
-    background-color: #2e2e2e;
-    border: 3px solid #d4af37;
+    background-color: #333;
+    border: 3px solid #ff6f61;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
@@ -266,18 +192,17 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     z-index: 1000;
-    color: #d4af37;
+    color: #ffeb3b;
     font-family: 'Courier New', monospace;
 }
 
-/* Popup Header */
 .popup-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     margin-bottom: 15px;
-    border-bottom: 1px solid #d4af37;
+    border-bottom: 1px solid #ffeb3b;
 }
 
 .popup-header h3 {
@@ -286,8 +211,8 @@ nav ul li a:hover {
 }
 
 .btn-close {
-    background-color: #d4af37;
-    color: #2e2e2e;
+    background-color: #ffeb3b;
+    color: #333;
     border: none;
     font-size: 1.2rem;
     padding: 5px;
@@ -295,10 +220,9 @@ nav ul li a:hover {
 }
 
 .btn-close:hover {
-    background-color: #c49b3d;
+    background-color: #ffd54f;
 }
 
-/* Scrollable notification list */
 .notification-list {
     max-height: 200px;
     overflow-y: auto;
@@ -316,27 +240,7 @@ nav ul li a:hover {
 .notification-list ul li {
     margin: 5px 0;
     font-size: 1rem;
-    color: #f0e68c;
-}
-
-/* Steampunk-styled buttons */
-.popup-buttons {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
-.btn-steampunk {
-    background-color: #d4af37;
-    color: #2e2e2e;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn-steampunk:hover {
-    background-color: #c49b3d;
+    color: #ffeb3b;
 }
 
 /* Scrollbar styling */
@@ -345,17 +249,12 @@ nav ul li a:hover {
 }
 
 .notification-list::-webkit-scrollbar-track {
-    background: #2e2e2e;
+    background: #333;
 }
 
 .notification-list::-webkit-scrollbar-thumb {
-    background-color: #d4af37;
+    background-color: #ffeb3b;
     border-radius: 20px;
-}
-
-/* Hide popup by default */
-.hidden {
-    display: none;
 }
 
 /* Footer Styles */
@@ -368,3 +267,4 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
