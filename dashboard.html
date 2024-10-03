@@ -31,22 +31,16 @@
     <!-- Steampunk-style Notification Popup -->
     <div id="notificationPopup" class="notification-popup hidden">
         <div class="popup-header">
-            <h3>Steampunk Notifications</h3>
+            <h3>Notifications</h3>
             <button class="btn-close" onclick="closeNotifications()">X</button>
         </div>
-        
-        <!-- Scrollable notification list -->
         <div class="notification-list">
             <ul>
                 <li>New user registration: John D.</li>
                 <li>Your challenge has been approved.</li>
                 <li>Update available for performance charts.</li>
-                <li>Reminder: Upcoming event on 09/28/2024.</li>
-                <li>System maintenance scheduled for 10/01/2024.</li>
             </ul>
         </div>
-
-        <!-- Buttons for notification actions -->
         <div class="popup-buttons">
             <button class="btn-steampunk" onclick="markAllRead()">Mark All as Read</button>
             <button class="btn-steampunk" onclick="dismissAll()">Dismiss All</button>
@@ -68,8 +62,7 @@
         <section class="dashboard-header">
             <h2>Welcome to your Dashboard, [User]</h2>
             <p>Track your activity and manage your profile here.</p>
-            <!-- Add a button to access more data -->
-            <button class="btn">Access More Data</button>
+            <button class="btn btn-modern">Access More Data</button>
         </section>
 
         <!-- Interactive Panels with Collapsible Feature -->
@@ -100,13 +93,8 @@
         <!-- Additional Interactive Button Section -->
         <section class="additional-buttons">
             <h3>Quick Actions</h3>
-            <!-- Action 1: Bounce Effect -->
             <button class="btn action-1">Action 1</button>
-
-            <!-- Action 2: Pulse Effect -->
             <button class="btn action-2">Action 2</button>
-
-            <!-- Action 3: Rotate Effect -->
             <button class="btn action-3">Action 3</button>
         </section>
 
@@ -168,10 +156,8 @@
             }
         }
 
-        // Initialize collapsible panels hidden
         document.querySelectorAll('.panel-content').forEach(el => el.style.display = 'none');
 
-        // Toggle notifications
         function toggleNotifications() {
             const popup = document.getElementById('notificationPopup');
             popup.classList.toggle('hidden');
@@ -182,7 +168,6 @@
             popup.classList.add('hidden');
         }
 
-        // Notification buttons functionality
         function markAllRead() {
             alert('All notifications marked as read.');
         }
